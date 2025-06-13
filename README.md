@@ -46,7 +46,7 @@ Aquí podemos ver que Docker Desktop abrió su dashboard, ¡EXCELENTE!
 Docker es la herramienta para contenedores, mientras que Docker Desktop es la app que facilita usarla. Tener Docker Desktop no garantiza que Docker esté instalado. Mejor verificarlo con el terminal.  
 
 Abre la terminal (Terminal en Mac/Linux o Command Prompt en Windows).  
-![Paso 1](docker-pasos/paso1e.png)  
+![Paso 1](docker-pasos/paso1e1.png)  
 
 💡 **Partes importantes de Docker Desktop:**  
 - Containers: donde gestionas contenedores (iniciar, parar, borrar).  
