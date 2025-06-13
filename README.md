@@ -2,97 +2,111 @@
 
 ## Paso 1: Instalar Docker
 
-💡 **¿Por qué empezamos por Docker?**  
-Docker es la base de este proyecto. Aunque podríamos empezar por el código fuente, entenderás mejor todo si tienes Docker funcionando primero.
+💡 **¿Por qué instalamos Docker primero?**  
+Docker es el elemento central en nuestro diagrama. Aunque técnicamente podríamos empezar a trabajar en el código fuente, será mucho más fácil entenderlo si instalamos y usamos Docker primero.  
 
-### Instalación de Docker Desktop
+### Instalando Docker Desktop  
+1. Ve a la página oficial de Docker.  
+2. Descarga Docker Desktop y selecciona la versión que coincida con el sistema operativo de tu computadora.  
 
-1. Ve al sitio oficial de [Docker](https://www.docker.com/products/docker-desktop/).
-2. Haz clic en **Download Docker Desktop** y elige la versión adecuada para tu sistema operativo.
+💡 **¿Cómo sé qué versión debo descargar?**  
+- **Mac:** Haz clic en el icono de Apple > Acerca de esta Mac, y revisa si el chip dice Apple o Intel.  
+- **Windows:** Busca Información del Sistema y revisa si es x64-based o ARM-based.  
+- **Linux:** Abre la terminal y ejecuta `uname -m`, revisa si es x86_64 o aarch64/arm64.  
 
-💡 **¿Cómo sé qué versión descargar?**
-
-- **Mac:** Haz clic en el ícono de Apple → “About this Mac” → Mira si dice “Apple” o “Intel”.
-- **Windows:** Abre *System Information* → Mira si dice “x64-based” o “ARM-based”.
-- **Linux:** Ejecuta `uname -m` en la terminal. Si ves `x86_64`, es Intel/AMD. Si ves `aarch64` o `arm64`, es ARM.
+Descargar Docker Desktop puede tomar varios minutos. Mientras esperas...  
 
 💡 **¿Qué es Docker Desktop?**  
-Es una interfaz gráfica que te permite gestionar contenedores fácilmente. Docker en sí es una herramienta de línea de comandos, y Docker Desktop lo complementa con una interfaz visual amigable.
+Es una aplicación que facilita el uso de Docker, que es una herramienta para crear y gestionar contenedores. Los desarrolladores usan Docker Desktop para construir, probar y desplegar apps desde sus computadoras de forma sencilla.  
 
-💡 **¿Qué son los contenedores?**  
-Los contenedores resuelven el típico problema de “funciona en mi máquina” al empaquetar el código y sus dependencias en un entorno aislado y portátil. Así se asegura que tu aplicación se comporte igual en cualquier equipo.
+💡 **¿Qué son los contenedores? ¿Por qué existen?**  
+Los contenedores resuelven el problema del “funciona en mi máquina” que sucede cuando un código corre bien en una computadora pero falla en otra. Cada máquina tiene su sistema operativo, versiones de software, recursos, etc.  
+Los contenedores:  
+- Empaquetan tu app y todo lo que necesita para correr (dependencias) en un solo archivo. Así otros desarrolladores pueden ejecutar ese paquete igual que tú.  
+- Permiten ejecutar aplicaciones de otros desarrolladores rápido porque traen todo listo para funcionar.  
+Se usan mucho en desarrollo para garantizar que todo el equipo trabaje en el mismo entorno, aunque estén en máquinas distintas. Por eso son tan populares en DevOps, que busca hacer más eficiente el desarrollo y despliegue de software.  
 
 💡 **¿Qué hace Docker?**  
-Docker te ayuda a crear, gestionar y desplegar contenedores. Piensa en él como una plataforma para construir barcos de carga (contenedores) y ponerlos en el agua (tu sistema operativo).
+Docker te ayuda a crear, administrar y desplegar contenedores eficientemente. Puedes imaginarlo como una herramienta para crear el “cargamento” y cargarlo en barcos (contenedores).  
 
-💡 **¿Qué se puede hacer en Docker Desktop?**
-
-- **Containers:** Ver, iniciar y detener contenedores.
-- **Images:** Administrar las plantillas de contenedores.
-- **Volumes:** Almacenar datos persistentes de contenedores.
-- **Builds:** Ver imágenes personalizadas creadas por ti.
-- **Docker Scout:** Analiza imágenes en busca de vulnerabilidades.
-- **Extensions:** Agrega herramientas adicionales de seguridad y monitoreo.
-
-### Verifica que Docker esté correctamente instalado
-
-Abre una terminal (en Windows: CMD o PowerShell; en Mac/Linux: Terminal) y ejecuta:
-
-```bash
-docker --version
-```
-
-Si ves una versión de Docker, ¡todo está listo! Si no, asegúrate de que Docker Desktop esté abierto y corriendo (busca el ícono 🐳 en tu barra de tareas).
-
-#### Imágenes del Paso 1
+💡 **¿Qué puedo hacer en Docker Desktop?**  
+Puedes crear, modificar y monitorear contenedores, así como administrar imágenes, datos y extensiones.  
 
 ![Paso 1](docker-pasos/paso1.png)  
 ![Paso 1](docker-pasos/paso1a.png)  
 ![Paso 1](docker-pasos/paso1b.png)  
 ![Paso 1](docker-pasos/paso1c.png)  
 ![Paso 1](docker-pasos/paso1d.png)  
-![Docker instalado](docker-pasos/dockerinstalado.png)  
-![Terminal](docker-pasos/paso1e.png)  
-![Opciones en Docker](docker-pasos/opcionesendocker.png)  
-![Docker daemon](docker-pasos/dockerdaemon.png)
+
+Aquí podemos ver que Docker Desktop abrió su dashboard, ¡EXCELENTE!  
+![Paso 1](docker-pasos/dockerinstalado.png)  
+
+### Verificar que Docker se instaló correctamente  
+💡 **¿Por qué verificar la instalación? ¿No basta con ver Docker Desktop?**  
+Docker es la herramienta para contenedores, mientras que Docker Desktop es la app que facilita usarla. Tener Docker Desktop no garantiza que Docker esté instalado. Mejor verificarlo con el terminal.  
+
+Abre la terminal (Terminal en Mac/Linux o Command Prompt en Windows).  
+![Paso 1](docker-pasos/paso1e.png)  
+
+💡 **Partes importantes de Docker Desktop:**  
+- Containers: donde gestionas contenedores (iniciar, parar, borrar).  
+- Images: templates para crear contenedores (lo veremos en el siguiente paso).  
+- Volumes: datos guardados en contenedores, que persisten aunque reinicies.  
+- Builds: imágenes personalizadas creadas o cargadas.  
+- Docker Scout: analiza imágenes por temas de seguridad.  
+- Extensions: integra herramientas adicionales para monitoreo, seguridad, etc.  
+
+![Paso 1](docker-pasos/opcionesendocker.png)  
+
+💡 **¿Qué es el Docker daemon?**  
+El Docker daemon es el motor que ejecuta las órdenes de Docker, como crear contenedores. Es un proceso en segundo plano que recibe comandos del cliente Docker (terminal o Docker Desktop) y realiza las tareas pesadas.  
+
+🙋‍♀️ **Si no ves el icono del Docker daemon (🐳) en Mac:**  
+Intenta mover los iconos en la barra de menú manteniendo presionada la tecla Command, a veces se oculta por otros iconos o la cámara.  
+![Paso 1](docker-pasos/dockerdaemon.png)  
+
 
 ---
 
-## Paso 2: Ejecutar una Imagen Preconstruida
+## Paso 2: Ejecutar una Imagen de Contenedor Preconstruida  
+¡Wooohoo, ahora que hemos instalado Docker, vamos a usarlo para crear un nuevo contenedor a partir de una imagen de contenedor existente!  
+NOTA: Aún no estamos construyendo nuestra propia aplicación (eso sucederá en el siguiente paso), así que piensa en este paso como tu campo de entrenamiento para aprender cómo funcionan las imágenes de contenedores antes de crear la tuya propia.
 
-Ahora que tienes Docker instalado, vamos a crear un contenedor a partir de una imagen ya existente.
+💡 ¿Qué es una imagen de contenedor?  
+Una imagen de contenedor es un plano o plantilla para contenedores. Le da a Docker instrucciones sobre qué incluir en un contenedor, como código de aplicación, librerías, dependencias y archivos necesarios.  
+Puedes crear múltiples contenedores idénticos a partir de la misma imagen, y todos esos contenedores se comportarán igual sin importar dónde se desplieguen (siempre que haya una plataforma de contenedores, por ejemplo Docker, para ejecutarlos).  
+Esto es genial para desarrolladores que trabajan en equipo, porque significa que todos tienen la misma experiencia con una aplicación que están ejecutando en sus computadoras individuales. Hay menos probabilidad de que una aplicación funcione solo para algunos miembros del equipo y no para otros. También es mucho más rápido para los nuevos miembros del equipo ponerse al día ejecutando las aplicaciones que necesitan para que su proyecto funcione.
 
-💡 **¿Qué es una imagen de contenedor?**  
-Es una plantilla que define qué incluye un contenedor: código, librerías, archivos, etc. A partir de una imagen se pueden crear múltiples contenedores idénticos.
-
-### Comando para crear un contenedor Nginx
-
-Abre la terminal y ejecuta:
-
-```bash
+Vuelve a tu terminal y ejecuta el siguiente comando:  
 docker run -d -p 80:80 nginx
-```
+![Paso 2](docker-pasos/terminal.png)
 
-💡 **¿Qué hace este comando?**
+💡 ¿Qué hacen estos comandos?  
+`docker run` inicia un nuevo contenedor. Estamos usando una imagen de contenedor preexistente llamada nginx y arrancando este contenedor en modo separado (`-d`) para que se ejecute en segundo plano. Luego, `-p 80:80` mapea el puerto 80 de tu máquina host al puerto 80 dentro del contenedor, lo que significa que podrás acceder a la página web que Nginx está ejecutando desde el navegador de tu computadora.
 
-- `docker run`: Crea un nuevo contenedor.
-- `-d`: Ejecuta el contenedor en segundo plano (modo "detached").
-- `-p 80:80`: Conecta el puerto 80 de tu computadora con el puerto 80 del contenedor.
-- `nginx`: Es la imagen que estás usando (servidor web liviano y potente).
+💡 ¿Qué es Nginx?  
+Nginx (se pronuncia "engine-x") es un servidor web, lo que significa que es un programa que sirve páginas web a personas en internet. Los ingenieros usan Nginx porque puede manejar mucho tráfico web de forma fluida y eficiente. A veces, escucharás que Nginx se llama 'proxy server', lo que significa que también puede usarse para reenviar solicitudes de internet a otros servidores, ayudando a balancear la carga o manejar más usuarios.
 
-Después de ejecutar el comando, abre tu navegador y ve a [http://localhost](http://localhost). Deberías ver la página de bienvenida de Nginx.
+Deberías obtener esta respuesta en tu terminal:  
+![Paso 2](docker-pasos/paso2.png)
 
-#### Imágenes del Paso 2
+💡 Extra para expertos: Si te preguntas de dónde viene la imagen de Nginx, puedes encontrar nginx en Docker Hub haciendo clic aquí.  
+💡 Extra para expertos: ¿Qué es Docker Hub?  
+Docker Hub es un registro de contenedores, lo que significa que es una biblioteca en línea donde las personas pueden compartir y encontrar imágenes Docker.  
+Psst... AWS también tiene su propio registro de contenedores, llamado Amazon ECR (Elastic Container Registry).
 
-![Terminal ejecutando nginx](docker-pasos/terminal.png)  
-![Contenedor corriendo](docker-pasos/paso2.png)  
-![Nginx en localhost](docker-pasos/paso2a.png)
+Abre tu navegador web y navega a http://localhost. Deberías ver la página de bienvenida predeterminada de Nginx.  
+![Paso 2](docker-pasos/paso2a.png)
 
-💡 **¿Qué es Nginx?**  
-Es un servidor web que entrega páginas web. También puede funcionar como servidor proxy para balanceo de carga.
+💡 ¡Wow! ¿Cómo es que terminé viendo esta página de bienvenida de Nginx?  
+Escribir localhost en tu navegador significa que quieres conectarte al software servidor que está corriendo en tu propia máquina local.  
+Como mapeaste el puerto 80 de tu máquina al puerto 80 en el contenedor que está corriendo (esto pasó cuando ejecutaste `-p 80:80 nginx` anteriormente en este paso), el software servidor al que se conecta localhost es el servidor Nginx dentro del contenedor.  
+¡Por eso ves la página web predeterminada de Nginx!
 
-💡 **¿Qué es Docker Hub?**  
-Es un repositorio público de imágenes Docker, como una App Store para contenedores. Por ejemplo, puedes encontrar la imagen `nginx` en [Docker Hub](https://hub.docker.com/_/nginx).
+💡 ¿Cómo sabe localhost que use el puerto 80?  
+Los navegadores web asumen automáticamente que te refieres al puerto 80 cuando no especificas un número de puerto. Así que cuando escribes localhost en tu navegador, es básicamente lo mismo que escribir localhost:80.
+
+Fíjate cómo pudimos ejecutar un servidor Nginx y abrir una página web en segundos usando contenedores. Hacer esto con una máquina virtual (como EC2) tomaría mucho más tiempo: crear la instancia EC2 significa que necesitaríamos instalar un sistema operativo completo y otro software para crear el servidor web. En general, los contenedores permiten cargar y desplegar aplicaciones más rápido que usando máquinas virtuales.
 
 ---
 
