@@ -558,8 +558,7 @@ Selecciona Next.
 
 Para el paso final, solo queda revisar la configuración de Elastic Beanstalk. Aquí se resumen tus elecciones en las últimas cinco páginas.  
 
-Hagamos un checklist rápido:  
-- ¿Application name es NextWork App?  
+Hagamos un checklist rápido:   
 - ¿Application code es un archivo zip?  
 - ¿EC2 instance profile está en ecsInstanceRole?  
 - ¿Public IP address está en true?  
