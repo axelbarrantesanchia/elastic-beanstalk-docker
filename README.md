@@ -90,8 +90,8 @@ Nginx (se pronuncia "engine-x") es un servidor web, lo que significa que es un p
 Deberías obtener esta respuesta en tu terminal:  
 ![Paso 2](docker-pasos/paso2.png)
 
-💡 Extra para expertos: Si te preguntas de dónde viene la imagen de Nginx, puedes encontrar nginx en Docker Hub haciendo clic aquí.  
-💡 Extra para expertos: ¿Qué es Docker Hub?  
+
+💡  ¿Qué es Docker Hub?  
 Docker Hub es un registro de contenedores, lo que significa que es una biblioteca en línea donde las personas pueden compartir y encontrar imágenes Docker.  
 Psst... AWS también tiene su propio registro de contenedores, llamado Amazon ECR (Elastic Container Registry).
 
@@ -427,7 +427,7 @@ Carga el archivo ZIP que creaste anteriormente. Esto sube el código de tu aplic
 
 En la sección Presets, elige **Single instance (Free tier eligible)**.  
 
-💡 **Extra para expertos: ¿Qué son los Presets?**  
+💡 **¿Qué son los Presets?**  
 Al seleccionar un preset, eliges una forma predefinida recomendada por AWS para configurar Elastic Beanstalk.  
 El preset Single instance crea una única instancia EC2, ideal para pruebas y elegible para el Free Tier.  
 Otros presets se adaptan a diferentes escenarios y necesidades. Por ejemplo, alta disponibilidad ofrece herramientas para manejar rápidamente cambios en el volumen de tráfico, ideal para aplicaciones en producción y uso público.  
@@ -483,7 +483,7 @@ Uno de los beneficios de Elastic Beanstalk es que puede manejar la infraestructu
 💡 ¿Qué es un instance profile?  
 Un instance profile es otro rol IAM (similar a los service roles), pero está diseñado para dar a las instancias EC2 permiso para acceder a otros servicios AWS que tu aplicación pueda necesitar para funcionar.
 
-💡 Extra para expertos: ¿Qué hace ecsInstanceRole?  
+💡 ¿Qué hace ecsInstanceRole?  
 El ecsInstanceRole otorga a las instancias EC2 permiso para gestionar contenedores usando AWS Elastic Container Service (ECS).  
 Mientras Docker construye y ejecuta contenedores, piensa en ECS como un administrador que ayuda a Elastic Beanstalk a decidir cuántos contenedores iniciar y detener, basado en la cantidad de tráfico hacia tu aplicación.  
 ![Paso 6](docker-pasos/paso6s.png)  
@@ -510,14 +510,14 @@ Otros tipos son para casos especiales, como Provisioned IOPS SSD (io1/io2) para 
 
 En Instance metadata service (IMDS), asegúrate que IMDSv1 esté Desactivado (mantén la casilla Deactivated marcada).  
 
-💡 Extra para expertos: ¿Qué es Instance metadata service (IMDS)?  
+💡¿Qué es Instance metadata service (IMDS)?  
 IMDS es un servicio que otorga credenciales temporales a tus aplicaciones en las instancias EC2. Por ejemplo, para permitir acceso a S3 desde tu app.  
 ![Paso 6](docker-pasos/paso6u.png)  
 
 Como nuestra app no necesitará acceso a otros servicios AWS, no necesitamos IMDS.  
 No es necesario configurar nada más. Salta las secciones Security groups y Capacity.  
 
-💡 Extra para expertos: ¿Qué hacen estas configuraciones?  
+💡¿Qué hacen estas configuraciones?  
 Los security groups controlan el tráfico, mientras que Capacity controla la capacidad de cómputo del entorno y la configuración de autoescalado para optimizar el número de instancias usadas.  
 
 Selecciona Next.  
@@ -528,20 +528,20 @@ En la página Configure updates, monitoring, and logging:
 En la sección Monitoring, selecciona Basic para tu System.  
 🚨 Asegúrate de seleccionar Basic para mantener el proyecto gratis. 🚨  
 
-💡 Extra para expertos: ¿Qué son monitoring y health reporting?  
+💡 ¿Qué son monitoring y health reporting?  
 Son herramientas que te dan actualizaciones de rendimiento y estado de tu aplicación Elastic Beanstalk para detectar problemas antes que afecten a los usuarios.  
 ![Paso 6](docker-pasos/paso6w.png)  
 
 Desplázate a la sección Managed platform updates.  
 Asegúrate de desmarcar la casilla Activated para la opción Managed updates.  
 
-💡 Extra para expertos: ¿Qué hacen los managed updates?  
+💡 ¿Qué hacen los managed updates?  
 Actualizan automáticamente el software que corre tu aplicación en Elastic Beanstalk, por ejemplo Docker, para mantenerla segura y estable sin actualizaciones manuales.  
 ![Paso 6](docker-pasos/paso6x.png)  
 
 Ahora en Rolling updates and deployments, acepta la política predeterminada All at once deployment.  
 
-💡 Extra para expertos: ¿Qué son los application deployments?  
+💡 ¿Qué son los application deployments?  
 Son los procesos para mover una nueva versión de software a producción en Elastic Beanstalk: subir código, configurar opciones, y reemplazar la versión antigua por la nueva que ven los usuarios.  
 Hay dos tipos principales de deployment policies:  
 - All at once: actualiza todas las instancias al mismo tiempo, generando un breve downtime.  
@@ -550,7 +550,7 @@ Hay dos tipos principales de deployment policies:
 
 Deja todas las demás opciones, incluyendo Platform software, con sus valores por defecto.  
 
-💡 Extra para expertos: ¿Qué es platform software?  
+💡 ¿Qué es platform software?  
 Es el software que corre en las instancias de Elastic Beanstalk. Por ejemplo, Elastic Beanstalk configura Nginx como servidor proxy por defecto para manejar el tráfico entrante y pasarlo a las instancias EC2 que corren tu app, y luego enviar las respuestas al usuario.  
 
 Selecciona Next.  
